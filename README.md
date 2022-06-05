@@ -12,13 +12,14 @@ Please see the following paper for more details:
 - Matsue, K., Sugiyama, M.: **Unsupervised Tensor based Feature Extraction and Outlier Detection for Multivariate Time Series**, 2021 IEEE 8th International Conference on Data Science and Advanced Analytics (DSAA), the paper is available from *[IEEE Xplore](https://ieeexplore.ieee.org/abstract/document/9564117)*.
 
 ## Usage
-You can perform UFEKT by importing the module, ***ufekt***, in your source code. In addition to UFEKT, we can provide a sample code for outlier detection using the resulting vectors obtained from UFEKT. Please see the sample file, `sample.py`. The k-th Nearest Neighbor algorithm is employed for outlier detection in the sample file. 
+You can perform UFEKT by importing the module, ***ufekt***, in your source code. Furthermore, you can also execute outlier detection task using the provided sample code using feature vectors obtained from UFEKT. Please see `sample.py` file. In our sceinario, k-th Nearest Neighbor algorithm is employed for outlier detection task. 
+
+Below is an example of how to execute the sample code when multivariate time seires dataset is given as `datasets_sample1.csv`. In this case, the feature vectors obtaind from UFKET is output to `datasets_sample1_factors_1.csv` file.
 
 ```
 $ python3 sample.py <dataset_filename> [ --max_rank | --min_rank | -w | -s | -k | -od ]
 ```
 
-Below is an example of how to execute the sample code when multivariate time seires dataset is given as `datasets_sample1.csv`. In this case, the feature vectors obtaind from UFKET is included in the output file `datasets_sample1_factors_1.csv`.
 ```
 $ python3 sample.py datasets_sample1.csv
 ------------------------------------------------------------------------
@@ -41,7 +42,7 @@ Completed.
 $ 
 ```
 
-If you would like to perform outlier detection using feature vectors obtained from UFEKT, please add ***-od*** option in the command line. The results would be output to a score file. If a threshold value for outlier detection is determined, you will find outliers from the score file. Note that the k-th Nearest Neighbors algorithm is only employed for outlier detection.
+If you would like to perform outlier detection, please add ***-od*** option in the command line. The results would be output to a score file. If a threshold value for outlier detection is determined, you can identify outliers from the score file. Note that the k-th Nearest Neighbors algorithm is only employed for outlier detection in our sample code.
 ```
 $ python3 sample.py datasets_sample1.csv -od
 ------------------------------------------------------------------------
@@ -70,7 +71,7 @@ $
 Dataset must be given as a csv file. It must compose of $T$ by $P$ matrix where $T$ and $P$ indicate the length of time series and the number of vairables, respectively. Please see `datasets_sample1.csv` file as an example.
 
 ## Command-line arguments
-Some values of parameters can be changed using command-line options below:
+Some values of parameters can be changed in the command-line options:
 - `--max_rank`: set a maximum rank which is used for search range to find the best rank for outlier detection [default value: 50]
 - `--min_rank`: set a minimum rank which is used for search range to find the best rank for outlier detection [default value: 10]
 - `-w`: set a window size or the length of subsequence of time series [default value: 2]
@@ -78,12 +79,12 @@ Some values of parameters can be changed using command-line options below:
 - `-k`: set the number of "k" used in k-th Nearest Neighbor algorithm [default value: 5]
 
 ## Output
-Our source code generate one or two CSV files such as `datasets_sample1_factors_1.csv` and `datasets_sample1_scores.csv`, when `datasets_sample1.csv` is given as dataset file. 
-- The `datasets_sample1_factors_1.csv` include feature vectors obtained from UFEKT. Its size of the matrix would be $(T-w+1)$ by $R$, where $T$, $w$ and $R$ indicate the length of time series, a window size, and a rank, respectively. 
-- The `datasets_sample1_scores.csv` includes scores of results of outlier detection using ***k-th Nearest Neighbor*** algorithm as one of the applicaiton for UFEKT. The number of rows would be $T-w+1$. 
+The sample code generates one or two csv files such as `datasets_sample1_factors_1.csv` and `datasets_sample1_scores.csv`, when `datasets_sample1.csv` is given as a dataset file. 
+- The `datasets_sample1_factors_1.csv` include feature vectors obtained from UFEKT. Its size of a matrix would be $(T-w+1)$ by $R$, where $T$, $w$ and $R$ indicate the length of time series, a window size, and a rank, respectively. 
+- The `datasets_sample1_scores.csv` includes scores of results of outlier detection using ***k-th Nearest Neighbor*** algorithm. The number of rows would be $T-w+1$. 
 
 ## Environment
-We use Python 3.7.6 to execute our source code and some packages are called in our source code. Please check the packages and their versions below.
+We use Python 3.7.6 to execute our sample code and some packages are called in the code. Please check the packages and their versions below.
 
 - numpy 1.18.4
 - pandas 1.1.4
