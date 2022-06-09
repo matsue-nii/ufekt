@@ -86,6 +86,7 @@ Some values of parameters can be changed in the command-line options:
 - `-w`: set a window size or the length of subsequence of time series [default value: 2]
 - `-s`: set a sigma used in RBF kernel, $exp\{-\sum(x_i - x_j)^2/\sigma^2\}$, hence, do not set to zero [default value: 1.0]
 - `-k`: set the number of "k" used in k-th Nearest Neighbor algorithm [default value: 5]
+- `--od`: execute outlier detection using k-th Nearest Neighbor algorithm and feature vectors obtained from UFEKT
 
 ## Output
 The sample code generates one or two csv files such as `datasets_sample1_factors_1.csv` and `datasets_sample1_scores.csv`, when `datasets_sample1.csv` is given as a dataset file. 
