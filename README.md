@@ -1,4 +1,4 @@
-# ufekt
+# UFEKT
 UFEKT (Unsupervised Feature Extraction uisng Kernel Method and Tucker Decomposition)
 
 ## Overview
@@ -26,10 +26,10 @@ You can perform UFEKT by importing the module, ***ufekt***, in your source code.
 Below is an example of how to execute the sample code when multivariate time seires dataset is given as `datasets_sample1.csv`. In this case, the feature vectors obtaind from UFKET is output to `datasets_sample1_factors_1.csv` file.
 
 ```sh
-$ python3 sample.py <dataset_filename> [ --max_rank | --min_rank | -w | -s | -k | -od ]
+$ python3 sample.py <dataset_filename> [ --max_rank | --min_rank | -w | -s | -k | --od ]
 ```
 
-```sh
+```
 $ python3 sample.py datasets_sample1.csv
 ------------------------------------------------------------------------
 file="datasets_sample1.csv", min_rank=10, max_rank=50, window_size=2, sigma=1.0, knn_k=5, od=False
@@ -52,7 +52,7 @@ $
 ```
 
 If you would like to perform outlier detection, please add ***-od*** option in the command line. The results would be output to a score file. If a threshold value for outlier detection is determined, you can identify outliers from the score file. Note that the k-th Nearest Neighbors algorithm is only employed for outlier detection in our sample code.
-```sh
+```
 $ python3 sample.py datasets_sample1.csv -od
 ------------------------------------------------------------------------
 file="datasets_sample1.csv", min_rank=10, max_rank=50, window_size=2, sigma=1.0, knn_k=5, od=True
