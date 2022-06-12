@@ -84,7 +84,7 @@ Some values of parameters can be changed in the command-line options:
 - `--max_rank`: set a maximum rank which is used for search range to find the best rank for outlier detection [default value: 50]
 - `--min_rank`: set a minimum rank which is used for search range to find the best rank for outlier detection [default value: 10]
 - `-w`: set a window size or the length of subsequence of time series [default value: 2]
-- `-s`: set a sigma used in RBF kernel, $exp\{-\sum(x_i - x_j)^2/\sigma^2\}$, hence, do not set to zero [default value: 1.0]
+- `-s`: set a sigma used in RBF kernel, $exp\(-\sum(x_i - x_j)^2/\sigma^2\)$, hence, do not set to zero [default value: 1.0]
 - `-k`: set the number of "k" used in k-th Nearest Neighbor algorithm [default value: 5]
 - `--od`: execute outlier detection using k-th Nearest Neighbor algorithm and feature vectors obtained from UFEKT
 
